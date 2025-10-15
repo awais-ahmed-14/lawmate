@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lawmate - Empowering Indian citizens with legal knowledge, multilingual support, AI legal chatbot, and offline access to fundamental rights." />
+  <title>Lawmate - Know Your Rights</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .loading-spinner {
+      border-top-color: #4f46e5;
+      animation: spinner 1.5s linear infinite;
+    }
+    @keyframes spinner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-indigo-600 text-white px-4 py-2 rounded">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold tracking-tight">Lawmate</h1>
+      <!-- Mobile menu button -->
+      <label for="menu-toggle" class="md:hidden cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </label>
+      <input type="checkbox" id="menu-toggle" class="hidden">
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block space-x-6 text-sm font-medium">
+        <a href="#main" class="hover:text-indigo-300 transition">Home</a>
+        <a href="#features" class="hover:text-indigo-300 transition">Features</a>
+         <a href="#scenario" class="hover:text-indigo-300 transition">Scenario-Based Guidance</a>
+        <a href="#rights" class="hover:text-indigo-300 transition">Rights</a> 
+
+        <a href="#contact" class="hover:text-indigo-300 transition">Contact</a>
+      </nav>
+    </div>
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#main" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 hover:text-white">Home</a>
+        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 hover:text-white">Features</a>
+         <a href="#scenario" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 hover:text-white">Scenario-Based Guidance</a>
+        <a href="#rights" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 hover:text-white">
+
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 hover:text-white">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Language Selector -->
+  <div class="text-right p-4 bg-white shadow-sm">
+    <label for="languageSelector" class="mr-2 font-medium">Choose Language:</label>
+    <select id="languageSelector" class="p-2 rounded border focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="te">Telugu</option>
+      <option value="ta">Tamil</option>
+      <option value="bn">Bengali</option>
+      <option value="mr">Marathi</option>
+    </select>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div id="loadingIndicator" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+    <div class="bg-white p-6 rounded-lg shadow-xl flex flex-col items-center">
+      <div class="loading-spinner ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+      <p class="text-gray-700">Translating content...</p>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="main" class="bg-indigo-100 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <h2 id="hero-title" class="text-4xl md:text-5xl font-extrabold mb-4 text-indigo-900">
+        Empowering Citizens with Legal Knowledge
+      </h2>
+      <p id="hero-description" class="text-lg md:text-xl text-gray-700 mb-8">
+        Understand your fundamental rights, get legal guidance, and access help—anytime, anywhere.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-indigo-700 text-white font-semibold py-3 px-8 rounded-full shadow hover:bg-indigo-800 transition">
+          Learn More
+        </button>
+        <button class="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-full shadow hover:bg-gray-100 transition">
+          Download App
+        </button>
+      </div>
+    </div>
+  </section>
+  <meta charset="UTF-8">
+  <title>LAWMATE</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f9; }
+    #chatbox { 
+      width: 600px;          /* Increased width */
+      height: 600px;         /* Added fixed height */
+      margin: 20px auto; 
+      border: 1px solid #ccc; 
+      background: #fff; 
+      border-radius: 10px; 
+      padding: 20px;         /* More padding */
+      display: flex;
+      flex-direction: column;
+    }
+    #messages { 
+      flex: 1;               /* Takes remaining height */
+      overflow-y: auto; 
+      padding: 10px; 
+      font-size: 16px;       /* Slightly larger font */
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .msg { margin: 5px 0; padding: 10px 14px; border-radius: 10px; }
+    .user { background: #d1e7ff; text-align: right; }
+    .ai { background: #e9e9e9; text-align: left; }
+    #inputArea { display: flex; margin-top: 15px; }
+    #userInput { 
+      flex: 1; 
+      padding: 12px; 
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
+      font-size: 16px;       /* Larger font */
+    }
+    button { 
+      padding: 12px 20px; 
+      margin-left: 5px; 
+      border: none; 
+      border-radius: 5px; 
+      background: #007bff; 
+      color: #fff; 
+      cursor: pointer;
+      font-size: 16px;       /* Larger font */
+    }
+  </style>
+</head>
+<body>
+  <div id="chatbox">
+    <h3>🤖 LAWMATE AI Chatbot</h3>
+    <div id="messages"></div>
+    <div id="inputArea">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const GEMINI_API_KEY = "YOUR_API_KEY_HERE"; // ⚠ Move this to backend later
+
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      const messagesDiv = document.getElementById("messages");
+      messagesDiv.innerHTML += `<div class="msg user">You: ${message}</div>`;
+      input.value = "";
+
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ role: "user", parts: [{ text: message }] }],
+            }),
+          }
+        );
+
+        const data = await response.json();
+        const aiReply =
+          data.candidates?.[0]?.content?.parts?.[0]?.text ||
+          "⚠ Error: Empty response";
+
+        const lines = aiReply.split("\n").filter((l) => l.trim() !== "");
+        let i = 0;
+
+        function showNextLine() {
+          if (i < lines.length) {
+            messagesDiv.innerHTML += `<div class="msg ai">AI: ${lines[i]}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            i++;
+            setTimeout(showNextLine, 800);
+          }
+        }
+        showNextLine();
+      } catch (error) {
+        messagesDiv.innerHTML += `<div class="msg ai">Error: ${error.message}</div>`;
+      }
+    }
+  </script>
+</body>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-12 text-indigo-800">Key Features</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="feature-card bg-indigo-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="text-indigo-600 text-3xl mb-4">🔍</div>
+          <h4 class="feature-title font-semibold text-lg mb-2">Multilingual Support</h4>
+          <p class="text-gray-700">Supports Hindi, Telugu, Tamil, Bengali, and Marathi for wider accessibility.</p>
+        </div>
+        <div class="feature-card bg-indigo-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="text-indigo-600 text-3xl mb-4">🤖</div>
+          <h4 class="feature-title font-semibold text-lg mb-2">AI Legal Chatbot</h4>
+          <p class="text-gray-700">Ask your questions in natural language and get reliable legal answers instantly.</p>
+        </div>
+        <div class="feature-card bg-indigo-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="text-indigo-600 text-3xl mb-4">📚</div>
+          <h4 class="feature-title font-semibold text-lg mb-2">Scenario-Based Guidance</h4>
+          <p class="text-gray-700">Input real-life situations to receive step-by-step legal help and action paths.</p>
+        </div>
+        <div class="feature-card bg-indigo-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <div class="text-indigo-600 text-3xl mb-4">📶</div>
+          <h4 class="feature-title font-semibold text-lg mb-2">Offline Access</h4>
+          <p class="text-gray-700">Download key legal content for access even without an internet connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Add this inside a container that aligns right, e.g., flex container with 2 columns -->
+
+<!-- Full Page Fundamental Rights Section -->
+<div id="rightsPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeRightsPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">
+    Fundamental Rights of the Indian Constitution (Articles 14–32)
+  </h2>
+
+  <!-- Right to Equality -->
+  <section id="equality" class="mb-12">
+    <img src="Right-To-Equality-Article-14-18-In-Indian-Constitution-1024x576.webp"
+         alt="Right to Equality"
+         class="w-full max-w-5xl mx-auto mb-6 rounded-lg shadow-lg" />
+    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Right to Equality (Articles 14–18)</h3>
+    <p class="text-gray-700">
+      Guarantees equality before law, prohibits discrimination, ensures equality of opportunity in employment, abolishes untouchability, and ends titles like “Raja” or “Maharaja”.
+    </p>
+  </section>
+
+  <!-- Right to Freedom -->
+  <section id="freedom" class="mb-12">
+    <img src="Right-To-Freedom.webp"
+         alt="Right to Freedom"
+         class="w-full max-w-5xl mx-auto mb-6 rounded-lg shadow-lg" />
+    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Right to Freedom (Articles 19–22)</h3>
+    <p class="text-gray-700">
+      Covers freedoms of speech and expression, assembly, association, movement, residence, and profession. Also includes protection in respect of conviction and rights of the accused.
+    </p>
+  </section>
+
+  <!-- Right against Exploitation -->
+  <section id="exploitation" class="mb-12">
+    <img src="Right-Against-Exploitation.webp"
+         alt="Right against Exploitation"
+         class="w-full max-w-5xl mx-auto mb-6 rounded-lg shadow-lg" />
+    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Right against Exploitation (Articles 23–24)</h3>
+    <p class="text-gray-700">
+      Prohibits human trafficking, begar (forced labor), and employment of children below 14 years in hazardous occupations.
+    </p>
+  </section>
+
+  <!-- Right to Freedom of Religion -->
+  <section id="religion" class="mb-12">
+    <img src="Right-To-Freedom-Of-Religion.webp"
+         alt="Right to Freedom of Religion"
+         class="w-full max-w-5xl mx-auto mb-6 rounded-lg shadow-lg" />
+    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Right to Freedom of Religion (Articles 25–28)</h3>
+    <p class="text-gray-700">
+      Provides freedom of conscience and the right to freely profess, practice, and propagate religion. Also gives freedom to manage religious affairs and ensures no religious instruction is imposed in government institutions.
+    </p>
+  </section>
+
+  <!-- Cultural & Educational Rights -->
+  <section id="culture" class="mb-12">
+    <img src="Cultural-And-Educational-Rights.webp"
+         alt="Cultural and Educational Rights"
+         class="w-full max-w-5xl mx-auto mb-6 rounded-lg shadow-lg" />
+    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Cultural & Educational Rights (Articles 29–30)</h3>
+    <p class="text-gray-700">
+      Protects the rights of minorities to conserve their language, script, and culture. Grants minorities the right to establish and administer their own educational institutions.
+    </p>
+  </section>
+
+  <!-- Right to Constitutional Remedies -->
+  <section id="remedies" class="mb-12">
+    <img src="Right-To-Constitutional-Remedies.webp"
+         alt="Right to Constitutional Remedies"
+         class="w-full max-w-5xl mx-auto mb-6 rounded-lg shadow-lg" />
+    <h3 class="text-2xl font-semibold text-blue-700 mb-3">Right to Constitutional Remedies (Article 32)</h3>
+    <p class="text-gray-700">
+      Called the “heart and soul” of the Constitution by Dr. Ambedkar, this gives citizens the right to move the Supreme Court or High Courts to enforce Fundamental Rights. Courts can issue writs like Habeas Corpus, Mandamus, Prohibition, Certiorari, and Quo-Warranto.
+    </p>
+  </section>
+</div>
+
+
+  <!-- CTA Section -->
+  <section class="bg-indigo-700 text-white py-16 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-4">Start Your Legal Awareness Journey</h3>
+      <p class="mb-6 text-lg">Download the app and empower yourself with knowledge and support.</p>
+      <button class="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-full shadow hover:bg-gray-200 transition">
+        Coming Soon
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Lawmate</h4>
+          <p>Empowering every Indian citizen with legal knowledge and support.</p>
+        </div>
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#main" class="hover:text-white transition">Home</a></li>
+            <li><a href="#features" class="hover:text-white transition">Features</a></li>
+            <li><a href="#rights" class="hover:text-white transition">Fundamental Rights</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Legal Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition">Constitution of India</a></li>
+            <li><a href="#" class="hover:text-white transition">Legal Aid Services</a></li>
+            <li><a href="#" class="hover:text-white transition">Citizen's Charter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+        <p>&copy; 2025 Lawmate. Built to empower every Indian citizen.</p>
+      </div>
+    </div>
+  </footer>
+<!-- Scenario-Based Guidance Full Page -->
+<div id="scenarioPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeScenarioPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-indigo-700 mb-6 text-center">
+    Realtime Guidance, Incidents Occurred and Related Fundamental Rights Included
+  </h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-4">
+    <p>Incident related to:</p>
+
+    <ol class="list-decimal list-inside space-y-2">
+      <li><button class="right-btn text-left text-indigo-600 font-semibold hover:underline" data-target="equalityPage">Right to Equality</button></li>
+      <li><button class="right-btn text-left text-indigo-600 font-semibold hover:underline" data-target="freedomPage">Right to Freedom</button></li>
+      <li><button class="right-btn text-left text-indigo-600 font-semibold hover:underline" data-target="exploitationPage">Right Against Exploitation</button></li>
+      <li><button class="right-btn text-left text-indigo-600 font-semibold hover:underline" data-target="religionPage">Right to Freedom of Religion</button></li>
+      <li><button class="right-btn text-left text-indigo-600 font-semibold hover:underline" data-target="culturalPage">Cultural & Educational Rights</button></li>
+      <li><button class="right-btn text-left text-indigo-600 font-semibold hover:underline" data-target="remediesPage">Right to Constitutional Remedies</button></li>
+    </ol>
+  </div>
+</div>
+<!-- Right to Equality Full Page -->
+<div id="equalityPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeEqualityPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">🟦 Right to Equality – Easy Explanation with Real Example</h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">📚 What is Right to Equality?</h3>
+      <p>It means <strong>everyone should be treated the same</strong>—no matter their caste, religion, gender, or where they were born. It’s a promise in the Indian Constitution (Articles 14 to 18).</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">⚠️ Real-Life Incident (2019 – Tamil Nadu)</h3>
+      <p>In a school, <strong>Dalit students were made to sit separately</strong> during lunch. That’s wrong and unfair. It broke the rule of equality.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">🧾 Which Articles Were Broken?</h3>
+      <ul class="list-disc list-inside">
+        <li><strong>Article 14</strong>: All students should be treated equally.</li>
+        <li><strong>Article 15</strong>: You can’t treat someone badly because of their caste.</li>
+        <li><strong>Article 17</strong>: Untouchability is banned—no one should be made to feel “less than.”</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">✅ What Should Be Done?</h3>
+
+      <h4 class="font-semibold">📢 1. Awareness</h4>
+      <ul class="list-disc list-inside">
+        <li>Teach students and teachers that <strong>discrimination is illegal</strong>.</li>
+        <li>Use posters, videos, or apps like <strong>LawMate</strong> to explain equality.</li>
+      </ul>
+
+      <h4 class="font-semibold">🛑 2. Action</h4>
+      <ul class="list-disc list-inside">
+        <li>If you see unfair treatment, <strong>report it</strong> to:
+          <ul class="list-inside list-disc">
+            <li>School principal</li>
+            <li>Local police</li>
+            <li>Human Rights Commission</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">🏫 3. Prevention</h4>
+      <ul class="list-disc list-inside">
+        <li>Schools should:
+          <ul class="list-inside list-disc">
+            <li>Run <strong>equality workshops</strong></li>
+            <li>Make sure <strong>everyone eats together</strong></li>
+            <li>Stop any kind of <strong>separation or bias</strong></li>
+          </ul>
+        </li>
+      </ul>
+      <h5>💬 Simple Message
+No one is born “less.” Everyone deserves respect. That’s what the Right to Equality is all about.
+</h5>
+    </section>
+  </div>
+</div>
+<!-- Right to Freedom Full Page -->
+<div id="freedomPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeFreedomPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close ✖</button>
+
+  <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">
+    🟦 Right to Freedom – Easy Explanation with Real Example
+  </h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">📚 What is Right to Freedom?</h3>
+      <p>It means <strong>people in India have the right to speak, move, and live freely</strong>—as long as they follow the law. These rights help everyone live with dignity and make their own choices.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">⚠️ Real-Life Incident: Internet Shutdowns During CAA Protests (2019)</h3>
+      <p>During protests against the <strong>Citizenship Amendment Act (CAA)</strong> in 2019, <strong>many states turned off internet services</strong>. This caused problems like:</p>
+      <ul class="list-disc list-inside">
+        <li>People couldn’t <strong>share their opinions online</strong></li>
+        <li>People couldn’t <strong>communicate or move around easily</strong></li>
+      </ul>
+      <p>This went against the idea of freedom—especially the freedom to speak and move.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">🧾 What the Supreme Court Said (Anuradha Bhasin Case, 2020)</h3>
+      <ul class="list-disc list-inside">
+        <li><strong>Internet is part of free speech</strong></li>
+        <li>Shutdowns must be:
+          <ul class="list-disc list-inside">
+            <li><strong>Fair</strong> (not too strict)</li>
+            <li><strong>Clear</strong> (with proper reasons)</li>
+            <li><strong>Temporary</strong> (not forever)</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">✅ What Should Be Done?</h3>
+      <h4 class="font-semibold">📢 1. Legal Help</h4>
+      <ul class="list-disc list-inside">
+        <li>People can <strong>go to court</strong> if they feel the shutdown is unfair.</li>
+        <li>The <strong>Anuradha Bhasin case</strong> is a strong example to use.</li>
+      </ul>
+
+      <h4 class="font-semibold">🛑 2. Speak Up</h4>
+      <ul class="list-disc list-inside">
+        <li>Groups and NGOs should ask the government to:
+          <ul class="list-disc list-inside">
+            <li>Use shutdowns only when truly needed</li>
+            <li>Be honest and clear about why it’s happening</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">📱 3. Be Smart Online</h4>
+      <ul class="list-disc list-inside">
+        <li>Teach people about their <strong>digital rights</strong></li>
+        <li>Share ways to <strong>stay connected</strong> during shutdowns (like SMS, radio, or offline apps)</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">💬 Simple Message</h3>
+      <p><strong>Freedom means being able to speak, move, and connect. Shutting down the internet should be the last option—not the first.</strong></p>
+    </section>
+  </div>
+</div>
+<!-- Right Against Exploitation Full Page -->
+<div id="exploitationPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeExploitationPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">
+    🟦 Right Against Exploitation – Easy Explanation with Real Example
+  </h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">📚 What is Right Against Exploitation?</h3>
+      <p>It means <strong>no one can be forced to work unfairly or in dangerous conditions</strong>, especially children. The Constitution protects people from being exploited for cheap labor or forced work.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">⚠️ Real-Life Incident: Child Labor in Hyderabad (2021)</h3>
+      <p>In 2021, a <strong>factory in Hyderabad was raided</strong>. It was found that <strong>children were working in unsafe and harmful conditions</strong>. This broke the law that says:</p>
+      <ul class="list-disc list-inside">
+        <li>Children <strong>cannot work in factories or dangerous jobs</strong></li>
+        <li>Everyone has the right to be <strong>safe and treated with dignity</strong></li>
+      </ul>
+      <p>This violated their <strong>Right Against Exploitation</strong>, especially the rule that <strong>children under 14 cannot be employed in hazardous work</strong>.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">✅ What Should Be Done?</h3>
+
+      <h4 class="font-semibold">📢 1. Reporting</h4>
+      <ul class="list-disc list-inside">
+        <li>If you see child labor, <strong>report it</strong> to:
+          <ul class="list-disc list-inside">
+            <li>Local police</li>
+            <li>Labor department</li>
+            <li><strong>CHILDLINE 1098</strong> (free helpline for children)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">🛑 2. Rehabilitation</h4>
+      <ul class="list-disc list-inside">
+        <li>Rescued children should be:
+          <ul class="list-disc list-inside">
+            <li>Given <strong>education</strong></li>
+            <li>Supported through <strong>government schemes</strong> like scholarships, shelter homes, and counseling</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">🏢 3. Corporate Responsibility</h4>
+      <ul class="list-disc list-inside">
+        <li>Companies must:
+          <ul class="list-disc list-inside">
+            <li><strong>Follow labor laws</strong></li>
+            <li><strong>Check their supply chains</strong> to make sure no child is being exploited</li>
+            <li>Do <strong>regular audits</strong> to stay compliant</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">💬 Simple Message</h3>
+      <p><strong>Children belong in schools, not factories. Exploiting them is illegal and unfair. Everyone must help stop child labor.</strong></p>
+    </section>
+  </div>
+</div>
+<!-- Right to Freedom of Religion Full Page -->
+<div id="religionPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeReligionPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">
+    🟦 Right to Freedom of Religion – Easy Explanation with Real Example
+  </h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">📚 What is Right to Freedom of Religion?</h3>
+      <p>It means <strong>everyone in India has the right to follow, practice, and share their religion freely</strong>—as long as it doesn’t harm others. People can pray, celebrate festivals, and visit places of worship without fear.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">⚠️ Real-Life Incident: Religious Violence in Delhi (2020)</h3>
+      <p>In 2020, <strong>communal violence broke out in Delhi</strong> during protests. Many <strong>places of worship were damaged</strong>, and people were attacked because of their religion. This was wrong and unfair.</p>
+      <ul class="list-disc list-inside">
+        <li>Everyone has the <strong>freedom to follow any religion</strong></li>
+        <li>No one should be <strong>hurt or stopped</strong> because of their beliefs</li>
+      </ul>
+      <p>This violated the <strong>Right to Freedom of Religion</strong>, especially the part that protects peaceful religious practice.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">✅ What Should Be Done?</h3>
+
+      <h4 class="font-semibold">🤝 1. Community Engagement</h4>
+      <ul class="list-disc list-inside">
+        <li>Organize <strong>interfaith meetings</strong> where people from different religions talk and learn about each other</li>
+        <li>Promote <strong>respect and kindness</strong> between communities</li>
+      </ul>
+
+      <h4 class="font-semibold">⚖️ 2. Legal Action</h4>
+      <ul class="list-disc list-inside">
+        <li>Victims can:
+          <ul class="list-disc list-inside">
+            <li><strong>File complaints</strong> with the police</li>
+            <li>Use <strong>laws against hate crimes</strong> to get justice</li>
+            <li>Get help from <strong>human rights groups</strong></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">🛡️ 3. Policy Advocacy</h4>
+      <ul class="list-disc list-inside">
+        <li>Ask the government to:
+          <ul class="list-disc list-inside">
+            <li>Make <strong>stronger rules</strong> to stop hate crimes</li>
+            <li>Protect <strong>places of worship</strong></li>
+            <li>Support <strong>peace-building programs</strong></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">💬 Simple Message</h3>
+      <p><strong>Everyone has the right to pray, believe, and live peacefully. Hurting someone because of their religion is not just wrong—it’s against the law.</strong></p>
+    </section>
+  </div>
+</div>
+<!-- Cultural & Educational Rights Full Page -->
+<div id="culturalPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeCulturalPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">
+    🟦 Cultural and Educational Rights – Easy Explanation with Real Example
+  </h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">📚 What are Cultural and Educational Rights?</h3>
+      <p>These rights protect <strong>people’s culture, language, and traditions</strong>, especially for minorities. They also make sure <strong>everyone can go to school without losing their identity</strong>.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">⚠️ Real-Life Incident: Hijab Ban in Karnataka (2022)</h3>
+      <p>In 2022, <strong>some students in Karnataka were not allowed to wear hijabs</strong> in schools and colleges. This caused protests and debates across the country.</p>
+      <ul class="list-disc list-inside">
+        <li>Wearing a hijab is part of <strong>cultural and religious identity</strong> for many Muslim girls.</li>
+        <li>Stopping them from wearing it in school affected their <strong>right to education and culture</strong>.</li>
+      </ul>
+      <p>This raised questions about whether <strong>school rules were unfair</strong> to minority students.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">✅ What Should Be Done?</h3>
+
+      <h4 class="font-semibold">⚖️ 1. Legal Awareness</h4>
+      <ul class="list-disc list-inside">
+        <li>Students and parents can <strong>go to court</strong> to protect their rights.</li>
+        <li>The Constitution allows <strong>minority groups to preserve their culture and attend school freely</strong>.</li>
+      </ul>
+
+      <h4 class="font-semibold">🏫 2. Inclusive School Policies</h4>
+      <ul class="list-disc list-inside">
+        <li>Schools should:
+          <ul class="list-disc list-inside">
+            <li>Respect <strong>cultural diversity</strong></li>
+            <li>Make rules that <strong>include all students</strong>, not exclude them</li>
+            <li>Allow <strong>safe and respectful expression</strong> of identity</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">🗣️ 3. Open Dialogue</h4>
+      <ul class="list-disc list-inside">
+        <li>Encourage <strong>discussions between students, teachers, and communities</strong></li>
+        <li>Find a balance between:
+          <ul class="list-disc list-inside">
+            <li><strong>School discipline</strong></li>
+            <li>And <strong>individual rights</strong></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">💬 Simple Message</h3>
+      <p><strong>Everyone has the right to learn without giving up who they are. Schools should welcome all cultures—not push them away.</strong></p>
+    </section>
+  </div>
+</div>
+<!-- Right to Constitutional Remedies Full Page -->
+<div id="remediesPage" class="hidden fixed inset-0 bg-white overflow-y-auto z-50 p-6">
+  <button id="closeRemediesPage" class="mb-6 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Close ✖
+  </button>
+
+  <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">
+    🟦 Right to Constitutional Remedies – Easy Explanation with Real Example
+  </h2>
+
+  <div class="max-w-4xl mx-auto text-gray-800 text-lg space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">📚 What is Right to Constitutional Remedies?</h3>
+      <p>It means <strong>if your rights are violated, you can go to court to get help</strong>. This right protects all other rights—like a safety switch. It allows people to ask the courts to fix unfair situations.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">⚠️ Real-Life Incident: Migrant Workers During COVID-19 Lockdown (2020)</h3>
+      <p>During the lockdown in 2020, <strong>millions of migrant workers lost jobs and had no food, shelter, or transport</strong>. Many had to walk hundreds of kilometers to reach home. Some even died on the way.</p>
+      <p>This violated their <strong>Right to Life and Dignity</strong>, which says:</p>
+      <ul class="list-disc list-inside">
+        <li>Everyone has the right to live with <strong>basic needs</strong> like food, shelter, and safety</li>
+        <li>The government must <strong>protect people</strong>, especially during emergencies</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">✅ What Should Be Done?</h3>
+
+      <h4 class="font-semibold">⚖️ 1. Judicial Help</h4>
+      <ul class="list-disc list-inside">
+        <li>Citizens or groups can file <strong>Public Interest Litigations (PILs)</strong> in court</li>
+        <li>Courts can order the government to <strong>take action and protect rights</strong></li>
+      </ul>
+
+      <h4 class="font-semibold">🏛️ 2. Government Responsibility</h4>
+      <ul class="list-disc list-inside">
+        <li>The government should:
+          <ul class="list-disc list-inside">
+            <li>Plan better during crises</li>
+            <li>Make sure <strong>food, transport, and shelter</strong> are available</li>
+            <li>Listen to the needs of <strong>vulnerable groups</strong></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4 class="font-semibold">🧡 3. Community Support</h4>
+      <ul class="list-disc list-inside">
+        <li>NGOs and local groups can:
+          <ul class="list-disc list-inside">
+            <li>Provide <strong>food, water, and shelter</strong></li>
+            <li>Help workers reach home safely</li>
+            <li>Spread awareness about <strong>legal rights and help centers</strong></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">💬 Simple Message</h3>
+      <p><strong>If your rights are denied, you can ask the court to protect you. No one should suffer in silence—help is a right, not a favor.</strong></p>
+    </section>
+  </div>
+</div>
+<script>
+  // Right to Constitutional Remedies page logic
+  const remediesLink = document.querySelector('#scenarioPage ol li:nth-child(6)'); // 6th item
+  const remediesPage = document.getElementById('remediesPage');
+  const closeRemediesPage = document.getElementById('closeRemediesPage');
+
+  // Show page when clicked
+  remediesLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    remediesPage.classList.remove('hidden'); // Show page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close button functionality
+  closeRemediesPage.addEventListener('click', () => {
+    remediesPage.classList.add('hidden'); // Hide page
+  });
+</script>
+
+<script>
+  // Cultural & Educational Rights page logic
+  const culturalLink = document.querySelector('#scenarioPage ol li:nth-child(5)'); // 5th item
+  const culturalPage = document.getElementById('culturalPage');
+  const closeCulturalPage = document.getElementById('closeCulturalPage');
+
+  // Show page when clicked
+  culturalLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    culturalPage.classList.remove('hidden'); // Show page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close button functionality
+  closeCulturalPage.addEventListener('click', () => {
+    culturalPage.classList.add('hidden'); // Hide page
+  });
+</script>
+
+<script>
+  // Right to Freedom of Religion page logic
+  const religionLink = document.querySelector('#scenarioPage ol li:nth-child(4)'); // 4th item
+  const religionPage = document.getElementById('religionPage');
+  const closeReligionPage = document.getElementById('closeReligionPage');
+
+  // Show page when clicked
+  religionLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    religionPage.classList.remove('hidden'); // Show page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Close button functionality
+  closeReligionPage.addEventListener('click', () => {
+    religionPage.classList.add('hidden'); // Hide page
+  });
+</script>
+
+<script>
+  // Right Against Exploitation page logic
+  const exploitationLink = document.querySelector('#scenarioPage ol li:nth-child(3)'); // 3rd item
+  const exploitationPage = document.getElementById('exploitationPage');
+  const closeExploitationPage = document.getElementById('closeExploitationPage');
+
+  // Show Right Against Exploitation page when clicked
+  exploitationLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    exploitationPage.classList.remove('hidden'); // Show page
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+  });
+
+  // Close button functionality
+  closeExploitationPage.addEventListener('click', () => {
+    exploitationPage.classList.add('hidden'); // Hide page
+  });
+</script>
+
+<script>
+  // Right to Freedom page logic
+  const freedomLink = document.querySelector('#scenarioPage ol li:nth-child(2)'); // 2nd item: Right to Freedom
+  const freedomPage = document.getElementById('freedomPage');
+  const closeFreedomPage = document.getElementById('closeFreedomPage');
+
+  // Show Right to Freedom page when clicked
+  freedomLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    freedomPage.classList.remove('hidden'); // Show page
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+  });
+
+  // Close button functionality
+  closeFreedomPage.addEventListener('click', () => {
+    freedomPage.classList.add('hidden'); // Hide page
+  });
+</script>
+
+<script>
+  const equalityLink = document.querySelector('#scenarioPage ol li:nth-child(1)'); // 1st right in the list
+  const equalityPage = document.getElementById('equalityPage');
+  const closeEqualityPage = document.getElementById('closeEqualityPage');
+
+  equalityLink.addEventListener('click', () => {
+    equalityPage.classList.remove('hidden'); // Show Right to Equality page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  closeEqualityPage.addEventListener('click', () => {
+    equalityPage.classList.add('hidden'); // Hide page
+  });
+</script>
+<script>
+  // Scenario-Based Guidance buttons
+  const rightButtons = document.querySelectorAll('#scenarioPage .right-btn');
+
+  rightButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const targetPage = document.getElementById(targetId);
+      targetPage.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+<script>
+  const scenarioLink = document.querySelector('a[href="#scenario"]'); // Navbar "Scenario-Based Guidance"
+  const scenarioPage = document.getElementById('scenarioPage');
+  const closeScenarioPage = document.getElementById('closeScenarioPage');
+
+  scenarioLink.addEventListener('click', (e) => {
+    e.preventDefault();  
+    scenarioPage.classList.remove('hidden'); // Show Scenario-Based Guidance page
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+  });
+
+  closeScenarioPage.addEventListener('click', () => {
+    scenarioPage.classList.add('hidden'); // Hide page
+  });
+</script>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('change', () => {
+      if (menuToggle.checked) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.checked = false;
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Translation functionality
+    const originalContent = {
+      hero: "Empowering Citizens with Legal Knowledge",
+      description: "Understand your fundamental rights, get legal guidance, and access help—anytime, anywhere.",
+      features: [
+        "Multilingual Support",
+        "AI Legal Chatbot",
+        "Scenario-Based Guidance",
+        "Offline Access"
+      ],
+      descriptions: [
+        "Supports Hindi, Telugu, Tamil, Bengali, and Marathi for wider accessibility.",
+        "Ask your questions in natural language and get reliable legal answers instantly.",
+        "Input real-life situations to receive step-by-step legal help and action paths.",
+        "Download key legal content for access even without an internet connection."
+      ]
+    };
+
+    // Cache for translations
+    const translationCache = {};
+    
+    // Loading indicator
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    
+    async function translateText(text, targetLang) {
+      // Check cache first
+      if (translationCache[targetLang] && translationCache[targetLang][text]) {
+        return translationCache[targetLang][text];
+      }
+      
+      try {
+        const response = await fetch('/translate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, to: targetLang })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`Translation failed with status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (!data.translatedText) {
+          throw new Error('Invalid translation response');
+        }
+        
+        // Store in cache
+        if (!translationCache[targetLang]) {
+          translationCache[targetLang] = {};
+        }
+        translationCache[targetLang][text] = data.translatedText;
+        
+        return data.translatedText;
+      } catch (error) {
+        console.error("Translation failed:", error);
+        return text; // Return original text if translation fails
+      }
+    }
+document.addEventListener('DOMContentLoaded', () => {
+  const rightsLink = document.querySelector('a[href="#rights"]');
+  const rightsContainer = document.getElementById('fundamental-rights');
+  const closeRightsBtn = document.getElementById('closeRights');
+
+  function showRights() {
+    rightsContainer.classList.remove('hidden');
+  }
+
+  function hideRights() {
+    rightsContainer.classList.add('hidden');
+  }
+
+  rightsLink.addEventListener('click', (e) => {
+    e.preventDefault();  // prevent jump to #rights
+    showRights();
+  });
+
+  closeRightsBtn.addEventListener('click', () => {
+    hideRights();
+  });
+
+  // Optional: hide rights container if user clicks on other nav links
+  document.querySelectorAll('nav a').forEach(link => {
+    if (link !== rightsLink) {
+      link.addEventListener('click', hideRights);
+    }
+  });
+
+  // Optional: handle URL hash changes for #rights
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#rights') {
+      showRights();
+    } else {
+      hideRights();
+    }
+  });
+});
+
+    document.getElementById('languageSelector').addEventListener('change', async (e) => {
+      const lang = e.target.value;
+      
+      // Show loading indicator
+      loadingIndicator.classList.remove('hidden');
+      
+      try {
+        // Translate hero section
+        document.getElementById('hero-title').textContent = await translateText(originalContent.hero, lang);
+        document.getElementById('hero-description').textContent = await translateText(originalContent.description, lang);
+
+        // Translate feature titles
+        const featureTitles = document.querySelectorAll('.feature-title');
+        for (let i = 0; i < featureTitles.length; i++) {
+          featureTitles[i].textContent = await translateText(originalContent.features[i], lang);
+        }
+
+        // Translate feature descriptions
+        const featureDescriptions = document.querySelectorAll('.feature-title + p');
+        for (let i = 0; i < featureDescriptions.length; i++) {
+          featureDescriptions[i].textContent = await translateText(originalContent.descriptions[i], lang);
+        }
+      } finally {
+        // Hide loading indicator
+        loadingIndicator.classList.add('hidden');
+      }
+    });
+  </script>
+  <script>
+  const toggleBtn = document.getElementById('toggleEqualityDetails');
+  const detailsDiv = document.getElementById('equalityDetails');
+
+  toggleBtn.addEventListener('click', () => {
+    detailsDiv.classList.toggle('hidden');
+  });
+</script>
+<script>
+  const rightsLink = document.querySelector('a[href="#rights"]'); // Navbar "Rights"
+  const rightsPage = document.getElementById('rightsPage');
+  const closeRightsPage = document.getElementById('closeRightsPage');
+
+  rightsLink.addEventListener('click', (e) => {
+    e.preventDefault();  
+    rightsPage.classList.remove('hidden'); // Show full rights page
+  });
+
+  closeRightsPage.addEventListener('click', () => {
+    rightsPage.classList.add('hidden'); // Hide rights page
+  });
+</script>
+</body>
+</html>
